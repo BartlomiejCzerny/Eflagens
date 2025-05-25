@@ -8,7 +8,21 @@
 </head>
 
 <body>
-    <header>Eflagens</header>
+    <header>
+        <span>Eflagens</span>
+    </header>
+
+    <div class="container">
+        <form>
+            <label>Identyfikatory zamówień</label>
+            <textarea name="order-ids" id="order-ids" rows="10" cols="50" required></textarea>
+            <div>
+                <input type="button" id="convert-button" value="Konwertuj">
+                <input type="button" id="copy-to-clipboard" value="Kopiuj do schowka">
+                <input type="reset" value="Wyczyść">
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
