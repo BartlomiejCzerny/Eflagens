@@ -22,11 +22,25 @@ function convertData() {
 }
 
 function copyToClipboard() {
-    const copyText = document.getElementById("order-ids").value;
-
-    navigator.clipboard.writeText(copyText).then(() => {
-        alert("Skopiowano do schowka!");
+    const copyOrderIds = document.getElementById("order-ids").value;
+    const toast = document.createElement('div');
+    const toastParent = document.getElementById('toast');
+    
+    toast.style.position = 'fixed';
+    toast.style.color = 'white';
+    toast.style.padding = '10px';
+    toast.style.borderRadius = '5px';
+    
+    navigator.clipboard.writeText(copyOrderIds).then(() => {
+        toast.textContent = "Pomyślnie skopiowano przekonwertowane identyfikatory do schowka.";
+        toast.style.background = '#4CAF50';
     }).catch(err => {
-        alert("Błąd kopiowania: " + err);
+        toast.textContent = `Błąd kopiowania! ${err}`;
+        toast.style.background = '#F44336';
     });
+
+    toastParent.appendChild(toast);
+    setTimeout(() => {
+        toast.remove();
+    }, 5000);
 }

@@ -16,6 +16,7 @@ header > span {
     padding: 0 10px;
 }
 
+div#toast,
 div.container {
     display: flex;
     justify-content: center;
