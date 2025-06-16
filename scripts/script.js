@@ -4,21 +4,33 @@ convertButton.addEventListener("click", convertData);
 const copyToClipboardButton = document.getElementById("copy-to-clipboard");
 copyToClipboardButton.addEventListener("click", copyToClipboard);
 
-function convertData() {
-    let lines = document.getElementById("order-ids").value.trim().split('\n');
-    let result = "";
+const resetButton = document.getElementById("reset-button");
+resetButton.addEventListener("click", reset);
 
-    for (let i = 0; i < lines.length; i++) {
-        if (lines[i].trim() === "") continue;
-        if (i !== lines.length - 1) {
-            result += `'${lines[i].trim()}',\n`;
-        } else {
-            result += `'${lines[i].trim()}'`;
+let counter = 0;
+
+function convertData() {
+    counter++;
+
+    if (counter <= 1) {
+        let lines = document.getElementById("order-ids").value.trim().split('\n');
+        let result = "";
+
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i].trim() === "") continue;
+            if (i !== lines.length - 1) {
+                result += `'${lines[i].trim()}',\n`;
+            } else {
+                result += `'${lines[i].trim()}'`;
+            }
+
         }
 
-    }
+        document.getElementById("order-ids").value = result;
 
-    document.getElementById("order-ids").value = result;
+        document.getElementById("order-ids").disabled = true;
+        document.getElementById("convert-button").disabled = true;
+    }
 }
 
 function copyToClipboard() {
@@ -43,4 +55,10 @@ function copyToClipboard() {
     setTimeout(() => {
         toast.remove();
     }, 5000);
+}
+
+function reset() {
+    counter = 0;
+    document.getElementById("order-ids").disabled = false;
+    document.getElementById("convert-button").disabled = false;
 }
