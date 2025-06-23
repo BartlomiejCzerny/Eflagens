@@ -41,18 +41,14 @@ function copyToClipboard() {
     toast.style.position = 'fixed';
     toast.style.color = 'white';
     toast.style.padding = '10px';
-    toast.style.border = 'none';
     toast.style.borderRadius = '5px';
-    toast.style.transition = 'background 0.3s, transform 0.2s';
-    toast.style.backdropFilter = 'blur(8px)';
-    toast.style.boxShadow = '0 4px 12px rgba(0, 255, 255, 0.2)';
     
     navigator.clipboard.writeText(copyOrderIds).then(() => {
         toast.textContent = "Pomyślnie skopiowano przekonwertowane identyfikatory do schowka.";
-        toast.style.background = 'rgba(0, 255, 128, 0.3)';
+        toast.style.background = '#4CAF50';
     }).catch(err => {
         toast.textContent = `Błąd kopiowania! ${err}`;
-        toast.style.background = 'rgba(255, 0, 64, 0.3)';
+        toast.style.background = '#F44336';
     });
 
     toastParent.appendChild(toast);
