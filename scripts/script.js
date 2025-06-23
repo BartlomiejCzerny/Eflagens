@@ -1,3 +1,5 @@
+const textArea = document.getElementById('order-ids');
+
 const convertButton = document.getElementById("convert-button");
 convertButton.addEventListener("click", convertData);
 
@@ -59,6 +61,6 @@ function copyToClipboard() {
 
 function reset() {
     counter = 0;
-    document.getElementById("order-ids").disabled = false;
-    document.getElementById("convert-button").disabled = false;
+    textArea.disabled = false;
+    convertButton.disabled = false;
 }
