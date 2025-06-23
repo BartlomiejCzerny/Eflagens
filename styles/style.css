@@ -80,11 +80,11 @@ div>input#convert-button:hover {
 }
 
 div>input#copy-to-clipboard {
-    background-color: #FFCA28;
+    background-color: #d59c03;
 }
 
 div>input#copy-to-clipboard:hover {
-    background-color: #FBC02D;
+    background-color: #c99403;
 }
 
 div>input#reset-button {
